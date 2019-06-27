@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>공공도서관</title>
+	<link rel="shortcut icon" href="img/icon1.png">      <!-- sizes="192*192" -->
+	<link rel="apple-touch-icon"  href="img/icon2.png" sizes="180x180"> <!-- sizes="180x180" -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=649ff822f69afa14db9f2a9a80f58b0b"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css"></style>
+</head>
+<body>
+  <div data-role="page" id="main">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a onclick="handleList()" class="ui-btn-left">도서관 목록</a>
+		<h1>서울 공공도서관 알리미</h1>
+		<a href="#main" data-icon="home" data-iconpos="notext">Home</a>
+	</div>
+	<div data-role="content">
+		<div class="ui-body ui-body-a gap">
+			<select data-native-menu="false" data-mini="true" id="searchType">
+				<option value="name">이름</option>
+				<option value="address">주소</option>
+			</select>
+			<input type="text" value="" data-mini="true" id="searchTxt"/>
+		</div>
+		<div class="ui-body">
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a">
+                	<input type="button" value="취소" onclick="cleanSearchTxt()"/>
+				</div>
+				<div class="ui-block-b">
+                   <input type="button" value="검색" onclick="handleSearch()"/>
+				</div>
+			</fieldset>
+		</div>
+		<div id="map" style="width:100%;height:300px;"></div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<h6>
+			만든 이 : 양희수<br>
+		</h6>
+    </div>
+  </div>
+  
+  
+    <div data-role="page" id="list">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+		<h1>서울 공공도서관 알리미</h1>
+		<a href="#main" data-icon="home" data-iconpos="notext">Home</a>
+	</div>
+	<div data-role="content">
+		<div id="list"></div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<h6>
+			만든 이 : 양희수<br>
+		</h6>
+    </div>
+  </div>
+  
+   <div data-role="page" id="details">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+		<h1>서울 공공도서관 알리미</h1>
+		<a href="#main" data-icon="home" data-iconpos="notext">Home</a>
+	</div>
+	<div data-role="content">
+		<div id="details"></div>
+		<h2 style="text-align:center;">추천도서</h2>
+		<div id="bookList"></div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<h6>
+			만든 이 : 양희수<br>
+		</h6>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
